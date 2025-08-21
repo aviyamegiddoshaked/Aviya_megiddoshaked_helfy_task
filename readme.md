@@ -1,4 +1,11 @@
-A simple full-stack Task Manager built with Express.js (backend) and React (CRA) (frontend).
+# Task Manager
+
+A simple full-stack Task Manager built with **Express.js** (backend) and **React (CRA)** (frontend).
+
+---
+
+## Repository Structure
+
 
 Repository Structure
 task-manager/
@@ -29,77 +36,85 @@ task-manager/
 ├── .gitignore
 └── README.md
 
-SetUp and Installation
-Prerequisites
-Node.js 18+ (works on newer too)
-npm
 
-1. Backend (port 4000)
-   cd backend
-   npm install
-   npm run dev # or: npm start
+---
 
-# → http://localhost:4000
+## Setup and Installation
 
-2. Frontend (port 3000)
-   cd frontend
-   npm install
-   npm start
+### Prerequisites
+- Node.js **18+** (works with newer versions too)
+- npm
 
-# → http://localhost:3000
+### 1. Backend (port **4000**)
+```bash
+cd backend
+npm install
+npm run dev   # or: npm start
 
-API Documentation (Backend)
-Base URL: http://localhost:4000
-Task Model
+Runs at: http://localhost:4000
+
+### 2. FrontEnd (port **3000**)
+```bash
+cd frontend
+npm install
+npm start
+
+## API Documentation (Backend)
+
+**Base URL:** `http://localhost:4000`
+
+### Task Model
+```json
 {
-"id": 1,
-"title": "Buy milk",
-"description": "2%",
-"completed": false,
-"createdAt": "2025-08-21T10:00:00.000Z",
-"priority": "low" | "medium" | "high"
+  "id": 1,
+  "title": "Buy milk",
+  "description": "2%",
+  "completed": false,
+  "createdAt": "2025-08-21T10:00:00.000Z",
+  "priority": "low" | "medium" | "high"
 }
 
-Quick cURL examples
+### Quick cURL Examples
 
-# Create
-
+#### Create
+```bash
 curl -X POST http://localhost:4000/api/tasks \
  -H "Content-Type: application/json" \
  -d '{"title":"Buy milk","description":"2%","priority":"high"}'
 
-# List
-
-curl http://localhost:4000/api/tasks
-
-# Toggle
-
+Toggle
 curl -X PATCH http://localhost:4000/api/tasks/1/toggle
-
-# Update
-
+Update
 curl -X PUT http://localhost:4000/api/tasks/1 \
  -H "Content-Type: application/json" \
  -d '{"title":"Buy milk and eggs","priority":"low"}'
+Delete
+curl -i -X DELETE http://localhost:4000/api/tasks/
 
-# Delete
 
-curl -i -X DELETE http://localhost:4000/api/tasks/1
+## Frontend Notes
 
-Frontend Notes
-Built with Create React App (port 3000).
-Hooks used: useState, useEffect, useMemo.
-Endless carousel: implemented in TaskList.js using vanilla JS/React:
-List rendered twice (A + A).
-requestAnimationFrame increments horizontal scroll.
-Seamless loop by jumping back at half width.
-No external carousel libraries.
-Pauses auto-scroll on hover for usability; respects prefers-reduced-motion.
-Components
-App — container, data fetching, state & handlers.
-TaskList — endless carousel of tasks.
-TaskItem — single task card with toggle/edit/delete.
-TaskForm — create/edit form (title, description, priority).
-TaskFilter — dropdown filter: All / Completed / Pending.
-Styling: plain CSS only (frontend/src/styles/styles.css) — responsive layout, priority badges, hover/focus states.
-Empty state: If no tasks, carousel shows a friendly empty message.
+- Built with **Create React App** (port `3000`).
+- Hooks used: `useState`, `useEffect`, `useMemo`.
+
+### Endless Carousel (TaskList.js)
+- Implemented in vanilla JS/React (**no external carousel libraries**).
+- List is rendered twice (`A + A`).
+- Uses `requestAnimationFrame` to increment horizontal scroll.
+- Seamless looping by resetting at half width.
+- Pauses auto-scroll on hover for usability.
+- Respects `prefers-reduced-motion`.
+
+### Components
+- **App** — container, data fetching, state & handlers.  
+- **TaskList** — endless carousel of tasks.  
+- **TaskItem** — single task card (toggle, edit, delete).  
+- **TaskForm** — create/edit form (title, description, priority).  
+- **TaskFilter** — dropdown filter: *All / Completed / Pending*.  
+
+### Styling
+- Plain **CSS only** (`frontend/src/styles/styles.css`).  
+- Responsive layout, priority badges, hover/focus states.  
+- **Empty state:** if no tasks → carousel shows a friendly empty message.  
+
+
