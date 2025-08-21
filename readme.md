@@ -50,6 +50,7 @@ task-manager/
 cd backend
 npm install
 npm run dev   # or: npm start
+```
 
 Runs at: http://localhost:4000
 
