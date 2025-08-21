@@ -55,10 +55,12 @@ npm run dev   # or: npm start
 Runs at: http://localhost:4000
 
 ### 2. FrontEnd (port **3000**)
-```bash
+``bash
 cd frontend
 npm install
 npm start
+
+```
 
 ## API Documentation (Backend)
 
@@ -82,6 +84,7 @@ npm start
 curl -X POST http://localhost:4000/api/tasks \
  -H "Content-Type: application/json" \
  -d '{"title":"Buy milk","description":"2%","priority":"high"}'
+```
 
 Toggle
 curl -X PATCH http://localhost:4000/api/tasks/1/toggle
