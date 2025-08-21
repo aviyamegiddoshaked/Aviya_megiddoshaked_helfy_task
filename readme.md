@@ -55,7 +55,7 @@ npm run dev   # or: npm start
 Runs at: http://localhost:4000
 
 ### 2. FrontEnd (port **3000**)
-``bash
+```bash
 cd frontend
 npm install
 npm start
@@ -76,6 +76,7 @@ npm start
   "createdAt": "2025-08-21T10:00:00.000Z",
   "priority": "low" | "medium" | "high"
 }
+```
 
 ### Quick cURL Examples
 
